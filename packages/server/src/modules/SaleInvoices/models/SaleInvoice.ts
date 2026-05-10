@@ -74,7 +74,7 @@ export class SaleInvoice extends TenantBaseModel {
    * Timestamps columns.
    */
   get timestamps() {
-    return ['created_at', 'updated_at'];
+    return ['createdAt', 'updatedAt'];
   }
 
   /**

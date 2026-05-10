@@ -619,7 +619,7 @@ export const getDashboardRoutes = () => [
   {
     path: `/vendors/:id/edit`,
     component: lazy(
-      () => import('@/containers/Vendors/VendorForm/VendorFormPage'),
+      () => import('@/containers/Vendors/VendorForm/VendorFormPage').then(module => ({ default: module.VendorFormPage })),
     ),
     name: 'vendor-edit',
     breadcrumb: intl.get('edit_vendor'),
@@ -631,7 +631,7 @@ export const getDashboardRoutes = () => [
   {
     path: `/vendors/new`,
     component: lazy(
-      () => import('@/containers/Vendors/VendorForm/VendorFormPage'),
+      () => import('@/containers/Vendors/VendorForm/VendorFormPage').then(module => ({ default: module.VendorFormPage })),
     ),
     name: 'vendor-new',
     breadcrumb: intl.get('new_vendor'),

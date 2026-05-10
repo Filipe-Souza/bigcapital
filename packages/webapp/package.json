@@ -3,9 +3,10 @@
   "version": "0.10.2",
   "private": true,
   "dependencies": {
-    "@bigcapital/email-components": "*",
-    "@bigcapital/pdf-templates": "*",
-    "@bigcapital/utils": "*",
+    "@bigcapital/email-components": "workspace:*",
+    "@bigcapital/pdf-templates": "workspace:*",
+    "@bigcapital/sdk-ts": "workspace:*",
+    "@bigcapital/utils": "workspace:*",
     "@blueprintjs-formik/core": "^0.3.7",
     "@blueprintjs-formik/datetime": "^0.4.0",
     "@blueprintjs-formik/select": "^0.4.5",
@@ -137,6 +138,8 @@
     "build": "vite build",
     "preview": "cross-env PORT=4173 vite preview",
     "typecheck": "tsc --noEmit",
+    "format": "prettier --write \"src/**/*.{ts,tsx,js,jsx,json,md}\"",
+    "format:check": "prettier --check \"src/**/*.{ts,tsx,js,jsx,json,md}\"",
     "test": "node scripts/test.js",
     "storybook": "start-storybook -p 6006"
   },

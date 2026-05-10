@@ -13,7 +13,9 @@ import { InjectModelMeta } from '@/modules/Tenancy/TenancyModels/decorators/Inje
 import { BillMeta } from './Bill.meta';
 import { InjectModelDefaultViews } from '@/modules/Views/decorators/InjectModelDefaultViews.decorator';
 import { BillDefaultViews } from '../Bills.constants';
+import { InjectAttachable } from '@/modules/Attachments/decorators/InjectAttachable.decorator';
 
+@InjectAttachable()
 @ExportableModel()
 @InjectModelMeta(BillMeta)
 @InjectModelDefaultViews(BillDefaultViews)

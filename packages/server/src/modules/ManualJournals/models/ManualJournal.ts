@@ -8,7 +8,9 @@ import { ManualJournalMeta } from './ManualJournal.meta';
 import { ImportableModel } from '@/modules/Import/decorators/Import.decorator';
 import { InjectModelDefaultViews } from '@/modules/Views/decorators/InjectModelDefaultViews.decorator';
 import { ManualJournalDefaultViews } from '../constants';
+import { InjectAttachable } from '@/modules/Attachments/decorators/InjectAttachable.decorator';
 
+@InjectAttachable()
 @ExportableModel()
 @ImportableModel()
 @InjectModelMeta(ManualJournalMeta)

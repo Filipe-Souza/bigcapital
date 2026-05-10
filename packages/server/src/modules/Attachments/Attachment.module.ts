@@ -3,7 +3,7 @@ import * as multerS3 from 'multer-s3';
 import { S3_CLIENT, S3Module } from "../S3/S3.module";
 import { DeleteAttachment } from "./DeleteAttachment";
 import { GetAttachment } from "./GetAttachment";
-import { getAttachmentPresignedUrl } from "./GetAttachmentPresignedUrl";
+import { GetAttachmentPresignedUrl } from "./GetAttachmentPresignedUrl";
 import { LinkAttachment } from "./LinkAttachment";
 import { UnlinkAttachment } from "./UnlinkAttachment";
 import { ValidateAttachments } from "./ValidateAttachments";
@@ -15,6 +15,8 @@ import { AttachmentsOnPaymentsReceived } from "./events/AttachmentsOnPaymentsRec
 import { AttachmentsOnManualJournals } from "./events/AttachmentsOnManualJournals";
 import { AttachmentsOnVendorCredits } from "./events/AttachmentsOnVendorCredits";
 import { AttachmentsOnSaleInvoiceCreated } from "./events/AttachmentsOnSaleInvoice";
+import { AttachmentsOnSaleReceipt } from "./events/AttachmentsOnSaleReceipts";
+import { AttachmentsOnSaleEstimates } from "./events/AttachmentsOnSaleEstimates";
 import { AttachmentsController } from "./Attachments.controller";
 import { RegisterTenancyModel } from "../Tenancy/TenancyModels/Tenancy.module";
 import { DocumentModel } from "./models/Document.model";
@@ -33,12 +35,12 @@ const models = [
 
 @Module({
   imports: [S3Module, ...models],
-  exports: [...models],
+  exports: [...models, GetAttachmentPresignedUrl],
   controllers: [AttachmentsController],
   providers: [
     DeleteAttachment,
     GetAttachment,
-    getAttachmentPresignedUrl,
+    GetAttachmentPresignedUrl,
     LinkAttachment,
     UnlinkAttachment,
     ValidateAttachments,
@@ -50,6 +52,8 @@ const models = [
     AttachmentsOnManualJournals,
     AttachmentsOnVendorCredits,
     AttachmentsOnSaleInvoiceCreated,
+    AttachmentsOnSaleReceipt,
+    AttachmentsOnSaleEstimates,
     AttachmentsApplication,
     UploadDocument,
     AttachmentUploadPipeline,

@@ -12,7 +12,9 @@ import { Customer } from '@/modules/Customers/models/Customer';
 import { DiscountType } from '@/common/types/Discount';
 import { InjectModelDefaultViews } from '@/modules/Views/decorators/InjectModelDefaultViews.decorator';
 import { SaleEstimateDefaultViews } from '../constants';
+import { InjectAttachable } from '@/modules/Attachments/decorators/InjectAttachable.decorator';
 
+@InjectAttachable()
 @ExportableModel()
 @ImportableModel()
 @InjectModelMeta(SaleEstimateMeta)
