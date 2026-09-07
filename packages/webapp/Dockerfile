@@ -1,5 +1,8 @@
 # Stage 1: Build
-FROM node:18.16.0-alpine AS builder
+# Pinned to BUILDPLATFORM: the webapp compiles to static assets, which are
+# architecture independent. Running this stage natively avoids emulating the
+# entire pnpm/vite build when targeting another architecture such as arm64.
+FROM --platform=$BUILDPLATFORM node:18.16.0-alpine AS builder
 
 WORKDIR /app
 
